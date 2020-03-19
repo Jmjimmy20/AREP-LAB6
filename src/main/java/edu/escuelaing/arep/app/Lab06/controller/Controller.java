@@ -1,6 +1,4 @@
-package edu.escuelaing.arep.app.controller;
-
-import javax.net.ssl.HttpsURLConnection;
+package edu.escuelaing.arep.app.lab06.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,12 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.escuelaing.arep.app.DAO.DnDplayerDAO;
-import edu.escuelaing.arep.app.entities.DnDplayer;
+import edu.escuelaing.arep.app.lab06.dao.DnDplayerDAO;
+import edu.escuelaing.arep.app.lab06.entities.DnDplayer;
 
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/ind")
 public class Controller{
 
     @Autowired

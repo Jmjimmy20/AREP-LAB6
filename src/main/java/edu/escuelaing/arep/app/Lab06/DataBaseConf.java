@@ -1,4 +1,4 @@
-package edu.escuelaing.arep.app;
+package edu.escuelaing.arep.app.lab06;
 
 import java.sql.SQLException;
 import javax.sql.DataSource;
@@ -29,7 +29,7 @@ public class DataBaseConf{
 			config.setJdbcUrl(dbUrl);
 			config.setUsername(dbUsername);
 			config.setPassword(dbPass);
-			config.setMaximumPoolSize(2);
+			config.setMaximumPoolSize(5);
 			return new HikariDataSource(config);
 		}
 	}

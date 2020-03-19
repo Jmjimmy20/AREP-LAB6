@@ -1,4 +1,4 @@
-package edu.escuelaing.arep.app.Lab06;
+package edu.escuelaing.arep.app.lab06;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

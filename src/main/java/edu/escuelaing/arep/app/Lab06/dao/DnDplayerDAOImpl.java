@@ -1,4 +1,4 @@
-package edu.escuelaing.arep.app.DAO;
+package edu.escuelaing.arep.app.lab06.dao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -9,7 +9,7 @@ import java.util.List;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import edu.escuelaing.arep.app.entities.DnDplayer;
+import edu.escuelaing.arep.app.lab06.entities.DnDplayer;
 
 @Component
 public class DnDplayerDAOImpl implements DnDplayerDAO{
@@ -17,9 +17,9 @@ public class DnDplayerDAOImpl implements DnDplayerDAO{
     @Autowired
     private DataSource dSource;
 
+    @Override
     public List<DnDplayer> findAll() throws SQLException {
-
-        String query = "SELECT * FROM test;";
+        String query = "SELECT * FROM test";
         List<DnDplayer> dnDplayers = new ArrayList<DnDplayer>();
         Connection connection = null;
 
@@ -29,11 +29,10 @@ public class DnDplayerDAOImpl implements DnDplayerDAO{
             ResultSet rs = statement.executeQuery(query);
             while(rs.next()){
                 DnDplayer dnDplayer = new DnDplayer();
-                dnDplayer.setName("name");
-                dnDplayer.setLifePoints(100);
-                dnDplayer.setRace("race");
-                dnDplayer.setPclass("class");
-
+                dnDplayer.setName(rs.getString("name"));
+                dnDplayer.setLifePoints(rs.getInt("lifepoints"));
+                dnDplayer.setRace(rs.getString("race"));
+                dnDplayer.setPclass(rs.getString("class"));
                 dnDplayers.add(dnDplayer);
             }
             connection.close();
@@ -44,11 +43,12 @@ public class DnDplayerDAOImpl implements DnDplayerDAO{
         }
     }
 
+    @Override
     public void insertPlayer(DnDplayer t) throws SQLException {
         String query = "INSERT INTO test VALUES ('"+t.getName()
-                                                   +"','"+t.getLifePoints()
-                                                   +"','"+t.getRace()
-                                                   +"',"+t.getClass()+");";
+                                                   +"',"+t.getLifePoints()
+                                                   +",'"+t.getRace()
+                                                   +"','"+t.getClass()+"');";
 
         Connection connection = null;
         System.out.println(query);
@@ -60,9 +60,11 @@ public class DnDplayerDAOImpl implements DnDplayerDAO{
             
         } catch (SQLException e) {
             System.err.println("Error trying to create player ["+ t.getName() +"], Exception: " + e.getMessage());
-        } 
+        }
 
     }
+
+    
 
     
 }

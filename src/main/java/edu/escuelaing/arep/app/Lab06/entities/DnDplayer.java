@@ -1,4 +1,4 @@
-package edu.escuelaing.arep.app.entities;
+package edu.escuelaing.arep.app.lab06.entities;
 
 public class DnDplayer{
 
